@@ -15,11 +15,15 @@ Getting Started
   Read thought the readme to understart the program.
   
 Built With
-  Thia was build with Android Studio using kotlin, SQLite as well as the code standard.
+
+  This was build with Android Studio using kotlin, SQLite as well as the code standard.
   
 Get Help
+
   If you have any question please email me at boneyw@gmail.com
   
 Motivation
+
   I have a lot of owner  of bussiness around me who asked about something like this. 
   
+I glad that you like the program and I  welcome any feedback you may have .
