@@ -11,19 +11,21 @@
 - [Get Help](#get-help)
 - [Motivation](#motivation)
 
-Getting Started
+Getting Started:
+
   Read thought the readme to understart the program.
   
-Built With
+Built With:
 
   This was build with Android Studio using kotlin, SQLite as well as the code standard.
   
-Get Help
+Get Help:
 
   If you have any question please email me at boneyw@gmail.com
   
-Motivation
+Motivation:
 
   I have a lot of owner  of bussiness around me who asked about something like this. 
   
-I glad that you like the program and I  welcome any feedback you may have .
+  
+I glad that you like the program and I  welcome any feedback you may have.
