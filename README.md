@@ -1,4 +1,4 @@
-# schedule-it
+# Schedule-It
 
  https://github.com/boneyw/schedule-it.git
  
