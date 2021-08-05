@@ -1,4 +1,20 @@
 <resources>
     <string name="app_name">Schedule IT</string>
     <string name="schedule_it">Schedule It</string>
+    <string name="Is_this_a_reoccurring_Meeting">Is this a reoccurring meeting.</string>
+    <string name="Time">Time</string>
+    <string name="Date">Date</string>
+    <string name="Email">Email</string>
+    <string name="notes">Notes</string>
+    <string name="the_time_now">The Time</string>
+    <string name="the_date_now">The Date</string>
+    <string name="schedule_the_app">Schedule the App</string>
+    <string name="repeat">Name</string>
+    <string name="add_a_new_event">Add A new Event</string>
+    <string name="the_time">The Time</string>
+    <string name="the_date">The Date</string>
+    <string name="the_note">The Note</string>
+    <string name="this_evet_is_set_to_happen_every_two_weeks">This evet is set to happen every two weeks</string>
+    <string name="todo_now">TODO</string>
+    <string name="todo">TODO</string>
 </resources>

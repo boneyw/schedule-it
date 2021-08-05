@@ -43,7 +43,7 @@ class SetApp : DialogFragment(), DatePickerDialog.OnDateSetListener, TimePickerD
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        TODO("Not yet implemented")
+
         savedDay = dayOfMonth
         savedMonth = month
         savedYear = year
@@ -57,7 +57,7 @@ class SetApp : DialogFragment(), DatePickerDialog.OnDateSetListener, TimePickerD
     }
 
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
-        TODO("Not yet implemented")
+
         savedHours = hourOfDay
         savedMin = minute
     }
@@ -79,5 +79,5 @@ class SetApp : DialogFragment(), DatePickerDialog.OnDateSetListener, TimePickerD
 }
 
 private fun Unit.show() {
-    TODO("Not yet implemented")
+
 }
