@@ -1,60 +1,48 @@
 package com.example.scheduleit
 
-
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.currentsch.*
 
 class CurrentSch : AppCompatActivity(){
 
-    private lateinit var linearLayoutManager: LinearLayoutManager
-
-     val eventlist: RecyclerView? = findViewById(R.id.ryc_eventLists)
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.currentsch)
 
-
-
-        val thedate = findViewById<Button>(R.id.btnNewApp)
-        val setApp = SetApp()
-
-
-        thedate.setOnClickListener {
-            setApp.clickDataPicker()
+        btnNewApp2.setOnClickListener {
+            val intent = Intent(this, NewPlan::class.java)
+            startActivity(intent)
         }
+        
+        seeAllEventInPlan()
 
     }
 
     private fun getEventist(): ArrayList<EventModelk>{
         val eventdatabase = EventDatabasek(this)
 
-        val evtlist: ArrayList<EventModelk> = eventdatabase.veiwEvent()
-
-        return evtlist
+        return eventdatabase.veiwEvent()
     }
 
-    private fun seeAllEventInPlan(){
-        if(getEventist().size >0){
-            eventlist?.visibility = View.VISIBLE
+    fun seeAllEventInPlan() = if(getEventist().size >0){
 
-            eventlist?.layoutManager = LinearLayoutManager(this)
+        ryc_eventLists.visibility = View.VISIBLE
+        viewnotview.visibility = View.GONE
 
-            eventlist?.layoutManager = LinearLayoutManager(this)
+        ryc_eventLists.layoutManager = LinearLayoutManager(this)
+        val eventAdapter = EventAdapter(this, getEventist())
+        ryc_eventLists.adapter = eventAdapter
 
-            val eventAdapter = EventAdapter(this, getEventist())
-
-            eventlist?.adapter = eventAdapter
-
-        }else{
-            eventlist?.visibility = View.GONE
-        }
+    }else{
+        ryc_eventLists.visibility = View.GONE
+        viewnotview.visibility = View.VISIBLE
     }
 }

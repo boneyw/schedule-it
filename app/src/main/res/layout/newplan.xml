@@ -7,69 +7,72 @@
 
     <TextView
         android:id="@+id/tv.Date"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="95dp"
+        android:layout_height="54dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="201dp"
         android:layout_marginBottom="292dp"
         android:text="@string/the_date"
-        app:layout_constraintBottom_toTopOf="@+id/sw_repeat"
+        android:textAlignment="center"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnDate"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.08"
+        tools:ignore="MissingConstraints"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/tv.Time"
-        android:layout_width="0dp"
-        android:layout_height="39dp"
+        android:layout_width="95dp"
+        android:layout_height="54dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="198dp"
         android:text="@string/the_time"
+        android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/BtnTime"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv.Date"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btnDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="95dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="12dp"
         android:text="@string/Date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toEndOf="@+id/tv.Date"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/BtnTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_width="95dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="12dp"
         android:text="@string/Time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toEndOf="@+id/tv.Time"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.191" />
+        app:layout_constraintTop_toBottomOf="@+id/btnDate"
+        app:layout_constraintVertical_bias="0.105" />
 
     <CheckBox
         android:id="@+id/sw_repeat"
-        android:layout_width="248dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="232dp"
+        android:layout_height="67dp"
         android:layout_marginBottom="325dp"
-        android:text="@string/Is_this_a_reoccurring_Meeting"
+        android:text="@string/is_this_this_repeating_every_two_weeks"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv.Date" />
+        app:layout_constraintTop_toBottomOf="@+id/tv.Time"
+        app:layout_constraintVertical_bias="0.781" />
 
     <Button
         android:id="@+id/btnSchedule"
@@ -85,24 +88,32 @@
         android:id="@+id/em_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="436dp"
+        android:layout_marginTop="60dp"
+        android:autofillHints="@string/Email"
         android:ems="10"
+        android:hint="@string/enter_email_address"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent"
-        android:autofillHints="@string/Email" />
+        app:layout_constraintTop_toBottomOf="@+id/sw_repeat"
+        tools:visibility="visible" />
 
     <EditText
         android:id="@+id/tx_notes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="208dp"
+        android:layout_marginTop="84dp"
+        android:autofillHints="Notes"
         android:ems="10"
+        android:hint="@string/enter_your_notes"
         android:inputType="textPersonName"
-        android:text="@string/repeat"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnSchedule"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent"
-        android:autofillHints="Notes" />
+        app:layout_constraintTop_toBottomOf="@+id/em_email"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

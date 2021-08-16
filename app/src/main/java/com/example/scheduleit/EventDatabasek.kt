@@ -1,10 +1,12 @@
 package com.example.scheduleit
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.SQLException
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
 
 class EventDatabasek(context: Context) :
@@ -13,9 +15,9 @@ class EventDatabasek(context: Context) :
 
 
     companion object {
-        private  const val DATABASE_VERSION =1
-        private  const val DATABASE_NAME ="EventDataBase"
-        private  const val TABLE_CONTACTS = "EventTable"
+        private const val DATABASE_VERSION =1
+        private const val DATABASE_NAME ="EventDataBase"
+        private const val TABLE_CONTACTS = "EventTable"
 
         private const val KEY_ID = "_id"
         private const val KEY_DATE = "date"
@@ -26,14 +28,14 @@ class EventDatabasek(context: Context) :
     }
     override fun onCreate(db: SQLiteDatabase?){
 
-        val CREATE_CONTACTS_TABLE =("CREATE TABLE " + TABLE_CONTACTS + "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_DATE + " TEXT," + KEY_TIME + "TEXT," + KEY_REPEAT
-                + "INTEGER," + KEY_EMAIL + " TEXT," + KEY_NOTES + "TEXT," +")")
+        val CREATE_CONTACTS_TABLE = (" CREATE TABLE " + TABLE_CONTACTS + "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_DATE + " TEXT NOT NULL," + KEY_TIME + " TEXT NOT NULL,"
+                + KEY_REPEAT + " INTEGER NOT NULL," + KEY_EMAIL + " TEXT NOT NULL," + KEY_NOTES + " TEXT NOT NULL" + ")")
         db?.execSQL(CREATE_CONTACTS_TABLE)
 
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db!!.execSQL("DROP TABLE IF EXISTS " + TABLE_CONTACTS)
+        db!!.execSQL("DROP TABLE IF EXISTS $TABLE_CONTACTS")
 
         onCreate(db)
     }
@@ -43,6 +45,7 @@ class EventDatabasek(context: Context) :
 
         val contentValues = ContentValues()
 
+        //contentValues.put(KEY_ID, evt.id)
         contentValues.put(KEY_DATE, evt.dDate)
         contentValues.put(KEY_TIME, evt.tTime)
         contentValues.put(KEY_REPEAT, evt.repeat)
@@ -50,28 +53,26 @@ class EventDatabasek(context: Context) :
         contentValues.put(KEY_NOTES, evt.nNotes)
 
         val success = db.insert(TABLE_CONTACTS, null, contentValues)
-
-
         db.close()
 
         return success
     }
 
+    @SuppressLint("Recycle")
     fun veiwEvent (): ArrayList<EventModelk> {
-        val evtlist: ArrayList<EventModelk> = ArrayList<EventModelk>()
+        val evtlist: ArrayList<EventModelk> = ArrayList()
         val  selectQueue = "SELECT * FROM $TABLE_CONTACTS"
 
         val db = this.readableDatabase
-        var cursor: Cursor?
-
+        val cursor: Cursor?
         try {
             cursor = db.rawQuery(selectQueue, null)
 
-        }catch (e: SQLException){
+        }catch (e: SQLiteException){
 
             db.execSQL(selectQueue)
-            return  ArrayList()
 
+            return  ArrayList()
         }
         var id:Int
         var date: String

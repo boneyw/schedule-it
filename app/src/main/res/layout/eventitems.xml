@@ -16,49 +16,47 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="318dp">
+        android:layout_height="303dp">
 
 
         <TextView
             android:id="@+id/Tv_email"
-            android:layout_width="87dp"
+            android:layout_width="235dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="290dp"
+            android:layout_marginEnd="142dp"
             android:layout_marginBottom="266dp"
-            android:layout_weight="1"
             tools:text="@string/Email" />
 
         <TextView
             android:id="@+id/set_date"
-            android:layout_width="wrap_content"
+            android:layout_width="97dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="62dp"
-            android:layout_marginBottom="185dp"
+            android:layout_marginEnd="34dp"
+            android:layout_marginBottom="186dp"
             android:layout_toStartOf="@+id/set_time"
-            android:layout_weight="1"
             android:text="@string/the_date" />
 
         <TextView
             android:id="@+id/set_time"
-            android:layout_width="wrap_content"
+            android:layout_width="149dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="183dp"
+            android:layout_marginEnd="93dp"
             android:layout_marginBottom="185dp"
             android:text="@string/the_time" />
 
         <TextView
             android:id="@+id/set_note"
-            android:layout_width="wrap_content"
+            android:layout_width="339dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="314dp"
-            android:layout_marginBottom="114dp"
+            android:layout_marginEnd="33dp"
+            android:layout_marginBottom="146dp"
             android:text="@string/the_note" />
 
         <ImageView
@@ -69,8 +67,8 @@
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="111dp"
             android:layout_marginBottom="26dp"
-            app:srcCompat="@android:drawable/ic_menu_edit"
-            android:contentDescription="@string/todo" />
+            android:contentDescription="@string/todo"
+            app:srcCompat="@android:drawable/ic_menu_edit" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -80,15 +78,15 @@
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="51dp"
             android:layout_marginBottom="28dp"
-            app:srcCompat="@android:drawable/ic_menu_delete"
-            android:contentDescription="@string/todo" />
+            android:contentDescription="@string/todo"
+            app:srcCompat="@android:drawable/ic_menu_delete" />
 
         <CheckBox
             android:id="@+id/is_repeat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="51dp"
+            android:layout_marginBottom="82dp"
             android:text="@string/this_evet_is_set_to_happen_every_two_weeks" />
     </RelativeLayout>
 

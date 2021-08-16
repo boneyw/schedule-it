@@ -17,4 +17,8 @@
     <string name="this_evet_is_set_to_happen_every_two_weeks">This evet is set to happen every two weeks</string>
     <string name="todo_now">TODO</string>
     <string name="todo">TODO</string>
+    <string name="enter_email_address">Enter Email Address</string>
+    <string name="enter_your_notes">Enter your Notes</string>
+    <string name="is_this_this_repeating_every_two_weeks">Is thIs this repeating every two weeks</string>
+    <string name="add_this_item_to_the_list">Add this item to the list</string>
 </resources>
