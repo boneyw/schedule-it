@@ -1,11 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/up_Date"
+        android:layout_width="97dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="201dp"
+        android:layout_marginBottom="292dp"
+        android:text="@string/the_date"
+        android:textAlignment="center"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnDate"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.072"
+        tools:ignore="MissingConstraints"
+        tools:visibility="visible" />
 
+    <TextView
+        android:id="@+id/up_Time"
+        android:layout_width="95dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="198dp"
+        android:layout_marginBottom="544dp"
+        android:text="@string/the_time"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/BtnTime"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv.Date"
+        tools:ignore="MissingConstraints,UnknownIdInLayout" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/btnUpDate"
+        android:layout_width="95dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/Date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnUpTime"
+        android:layout_width="95dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="544dp"
+        android:text="@string/Time"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDate"
+        app:layout_constraintVertical_bias="0.105"
+        tools:ignore="UnknownIdInLayout" />
+
+    <CheckBox
+        android:id="@+id/up_repeat"
+        android:layout_width="232dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="436dp"
+        android:text="@string/is_this_this_repeating_every_two_weeks"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv.Time"
+        app:layout_constraintVertical_bias="0.781"
+        tools:ignore="UnknownIdInLayout" />
+
+    <Button
+        android:id="@+id/btnupdateSchedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/update_your_schedule"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/up_email"
+        android:layout_width="171dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="372dp"
+        android:autofillHints="@string/Email"
+        android:ems="10"
+        android:hint="@string/enter_email_address"
+        android:inputType="textEmailAddress"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sw_repeat"
+        tools:ignore="TextViewEdits,UnknownIdInLayout"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/up_notes"
+        android:layout_width="152dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginBottom="288dp"
+        android:autofillHints="Notes"
+        android:ems="10"
+        android:hint="@string/enter_your_notes"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/em_email"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="TextViewEdits,UnknownIdInLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

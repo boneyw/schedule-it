@@ -1,15 +1,20 @@
 package com.example.scheduleit
+
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
-import android.widget.*
+import android.widget.DatePicker
+import android.widget.TimePicker
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.newplan.*
+import kotlinx.android.synthetic.main.update_event.*
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlinx.android.synthetic.main.newplan.*
 
-class NewPlan: AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener{
+class UpdateDataInfo:  AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
     var month = 0
     var day = 0
@@ -23,71 +28,57 @@ class NewPlan: AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePick
     var savedHours = 0
     var savedMin = 0
     var timeFormat = SimpleDateFormat("hh:mm a", Locale.US)
-
     var valnum: Int = 0
-
 
     val eventDatabasek = EventDatabasek(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.newplan)
+        setContentView(R.layout.update_event)
 
         pickDate()
         pickTime()
-        btnSchedule.setOnClickListener{
-            addEvent()
 
-        }
+
     }
 
-    private fun addEvent(){
+    fun updateEvent(evtModel: EventModelk){
 
-        val currdate = tv_Date.text.toString()
-        val currtime = tv_Time.text.toString()
-        val eEmail = em_email.text.toString()
-        val currnotes = tx_notes.text.toString()
-        valnum = if (sw_repeat.isChecked){
-            1
-        }else{
-            0
-        }
+//        val updateda = UpdateDataInfo()
 
-        if(currdate.isNotEmpty() && currtime.isNotEmpty() && eEmail.isNotEmpty() && currnotes.isNotEmpty()) {
+        up_Date.setText(evtModel.dDate)
+        up_Time.setText(evtModel.tTime)
+        up_email.setText(evtModel.eEmail)
+        up_notes.setText(evtModel.nNotes)
+        val theid = evtModel.id
 
-            val status = eventDatabasek.addEvent(EventModelk(0, currdate, currtime, valnum, eEmail, currnotes))
+        btnupdateSchedule.setOnClickListener {
 
-            if (status > - 1){
+            val date = up_Date.text.toString()
+            val time = up_Time.text.toString()
+            val email = up_email.text.toString()
+            val note = up_notes.text.toString()
 
-                Toast.makeText(applicationContext, "EventAdd", Toast.LENGTH_LONG).show()
-                em_email.text.clear()
-                tx_notes.text.clear()
-                tv_Date.text = "The Date"
-                tv_Time.text= "The Time"
-                //sw_repeat.isChecked = false
+            if(date.isNotEmpty() && time.isNotEmpty() && email.isNotEmpty() && note.isNotEmpty()) {
+
+                val status = eventDatabasek.addEvent(EventModelk(theid, date, time, valnum, email, note))
+
+                if (status > - 1){
+
+                    Toast.makeText(applicationContext, "EventUpdate", Toast.LENGTH_LONG).show()
+//                    em_email.text.clear()
+//                    tx_notes.text.clear()
+//                    tv_Date.text = "The Date"
+//                    tv_Time.text= "The Time"
+                    //sw_repeat.isChecked = false
+                }
+            }else{
+                Toast.makeText(applicationContext,"Information is missing", Toast.LENGTH_LONG).show()
             }
-        }else{
-            Toast.makeText(applicationContext,"Information is missing", Toast.LENGTH_LONG).show()
         }
-//        btnSchedule.setOnClickListener{
-//            try {
-//                val myEvent = EventModelk (1,
-//                    currdate,
-//                    currtime,
-//                    valnum,
-//                    eEmail,
-//                    currnotes
-//                )
-//
-//                Toast.makeText( this, "Event Saved", Toast.LENGTH_SHORT).show()
-//            }catch (e: Exception){
-//                Toast.makeText( this, "Error", Toast.LENGTH_SHORT).show()
-//
-//            }
-//
-//        }
+
     }
-    //Gathering data for the data and time picker
+
     private fun getDateTimeCalendar(){
         val cal : Calendar = Calendar.getInstance()
 
@@ -97,7 +88,7 @@ class NewPlan: AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePick
         hours = cal.get(Calendar.HOUR)
         min = cal.get(Calendar.MINUTE)
     }
-     fun pickDate() {
+    fun pickDate() {
 
         btnDate.setOnClickListener {
 
@@ -139,6 +130,8 @@ class NewPlan: AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePick
 
         tv_Time.text = timeFormat.format(selectedDate.time)
     }
+
+
 
 
 }

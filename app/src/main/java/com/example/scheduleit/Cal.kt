@@ -1,5 +1,6 @@
 package com.example.scheduleit
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,10 +18,10 @@ class Cal : AppCompatActivity()  {
         setContentView(R.layout.activity_cal)
 
         val thedate = findViewById<Button>(R.id.btnNewApp)
-        val setApp = SetApp()
 
         thedate.setOnClickListener {
-            setApp.clickDataPicker()
+            val intent = Intent(this, NewPlan::class.java)
+            startActivity(intent)
         }
     }
 }
