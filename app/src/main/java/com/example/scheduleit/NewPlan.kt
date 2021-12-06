@@ -16,7 +16,7 @@ class NewPlan: AppCompatActivity(), DatePickerDialog.OnDateSetListener, TimePick
     var year = 0
     var hours = 0
     var min = 0
-    var how = 0
+
 
     var savedMonth = 0
     var savedDay = 0
